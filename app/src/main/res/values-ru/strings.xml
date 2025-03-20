@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Кафе</string>
+    <string name="welcome">Добро пожаловать!</string>
+    <string name="username_hint">Ваше имя</string>
+    <string name="password_hint">Пароль</string>
+    <string name="sign_in">Войти</string>
+    <string name="greeting">Привет, %s! Что хотите заказать?</string>
+    <string name="coffee">Кофе</string>
+    <string name="tea">Чай</string>
+    <string name="additives">С чем хотите ваг %s?</string>
+    <string name="sugar">Сахар</string>
+    <string name="milk">Молоко</string>
+    <string name="lemon">Лимон</string>
+    <string name="choose_drink">Выберете напиток</string>
+</resources>

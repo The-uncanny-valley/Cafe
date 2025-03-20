@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Cafe</string>
+    <string name="welcome">Welcome!</string>
+    <string name="username_hint">Your name</string>
+    <string name="password_hint">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="greeting">Hi %s! What would you like to order?</string>
+    <string name="coffee">Coffee</string>
+    <string name="tea">Tea</string>
+    <string name="additives">What do you want your %s with?</string>
+    <string name="sugar">Sugar</string>
+    <string name="milk">Milk</string>
+    <string name="lemon">Lemon</string>
+    <string name="choose_drink">Choose your drink</string>
+    <string name="make_order">Make order</string>
+    <array name="types_of_tea">
+        <item>Green</item>
+        <item>Black</item>
+    </array>
+    <array name="types_of_coffee">
+        <item>Latte</item>
+        <item>Espresso</item>
+        <item>Americano</item>
+    </array>
+
+</resources>
