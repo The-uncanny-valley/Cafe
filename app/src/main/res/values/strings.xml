@@ -17,6 +17,8 @@
     <string name="what_drink_type">Drink type:</string>
     <string name="what_drink">Drink:</string>
     <string name="name">Name:</string>
+    <string name="">"Fill in all fields"</string>
+
     <array name="types_of_tea">
         <item>Green</item>
         <item>Black</item>
