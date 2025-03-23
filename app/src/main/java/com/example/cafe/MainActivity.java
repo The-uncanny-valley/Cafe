@@ -1,8 +1,12 @@
 package com.example.cafe;
 
+import android.app.Activity;
+import android.content.Context; // for hiding keyboard
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent; // for hiding keyboard
 import android.view.View;
+import android.view.inputmethod.InputMethodManager; // for hiding keyboard
 import android.widget.Button;
 import android.widget.EditText; // chatGPT
 import android.widget.Toast;
@@ -56,6 +60,26 @@ public class MainActivity extends AppCompatActivity {
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonSignIn = findViewById(R.id.buttonSignIn);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        View view = getCurrentFocus();
+        if (view instanceof EditText) {
+            hideKeyboard(this);
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            View view = activity.getCurrentFocus();
+            if (view == null) {
+                view = new View(activity);
+            }
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }
 
