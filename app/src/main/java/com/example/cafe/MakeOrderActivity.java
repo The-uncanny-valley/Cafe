@@ -1,5 +1,7 @@
 package com.example.cafe;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -20,5 +22,11 @@ public class MakeOrderActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public static Intent newIntent(Context context, String userName) { // Factory Method
+        Intent intent = new Intent(context, MakeOrderActivity.class);
+        intent.putExtra("username", userName);
+        return intent;
     }
 }

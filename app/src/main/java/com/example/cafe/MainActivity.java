@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 String password = editTextPassword.getText().toString().trim();
 
                 if (!username.isEmpty() && !password.isEmpty()) {
-                    launchNextScreen(username, password);
+                    launchNextScreen(username);
                 } else {
                     Toast.makeText(
                             MainActivity.this,
@@ -49,10 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void launchNextScreen(String username, String password) {
-        Intent intent = new Intent(MainActivity.this, MakeOrderActivity.class);
-        intent.putExtra("username", username);
-        intent.putExtra("password", password);
+    private void launchNextScreen(String username) {
+        Intent intent = MakeOrderActivity.newIntent(this, username);
         startActivity(intent);
     }
 
