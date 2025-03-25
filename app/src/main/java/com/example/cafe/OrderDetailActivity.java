@@ -1,5 +1,7 @@
 package com.example.cafe;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -21,4 +23,5 @@ public class OrderDetailActivity extends AppCompatActivity {
             return insets;
         });
     }
+
 }

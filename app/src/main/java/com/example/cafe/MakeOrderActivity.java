@@ -3,6 +3,8 @@ package com.example.cafe;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -33,6 +35,11 @@ public class MakeOrderActivity extends AppCompatActivity {
     private Spinner spinnerTea;
     private Spinner spinnerCoffee;
 
+    private String username;
+    private String drink;
+
+    private Button makeOrderButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,27 @@ public class MakeOrderActivity extends AppCompatActivity {
         });
         initViews();
         setUpUsername();
+
+        radioGroupDrinks.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == radioButtonTea.getId()) {
+                    onUserChoseTea();
+                } else if (checkedId == radioButtonCoffee.getId()) {
+                    onUserChoseCoffee();
+                }
+            }
+        });
+
+        radioButtonTea.setChecked(true);
+
+        makeOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //
+            }
+        });
+
     }
 
     public static Intent newIntent(Context context, String userName) { // Factory Method
@@ -68,12 +96,36 @@ public class MakeOrderActivity extends AppCompatActivity {
 
         spinnerTea = findViewById(R.id.spinnerTea);
         spinnerCoffee = findViewById(R.id.spinnerCoffee);
+
+        makeOrderButton = findViewById(R.id.makeOrderButton);
     }
 
     private void setUpUsername() {
-        String username = getIntent().getStringExtra(USERNAME);
+        username = getIntent().getStringExtra(USERNAME);
         String greeting = String.format(getString(R.string.greeting), username);
         textViewGreeting.setText(greeting);
+    }
+
+    private void onUserChoseTea() {
+        drink = getString(R.string.tea).toLowerCase();
+        String additivesLabel = getString(R.string.additives, drink);
+        textViewAdditives.setText(additivesLabel);
+        checkBoxLemon.setVisibility(View.VISIBLE);
+        spinnerTea.setVisibility(View.VISIBLE);
+        spinnerCoffee.setVisibility(View.INVISIBLE);
+    }
+
+    private void onUserChoseCoffee() {
+        drink = getString(R.string.coffee).toLowerCase();
+        String additivesLabel = getString(R.string.additives, drink);
+        textViewAdditives.setText(additivesLabel);
+        checkBoxLemon.setVisibility(View.INVISIBLE);
+        spinnerTea.setVisibility(View.INVISIBLE);
+        spinnerCoffee.setVisibility(View.VISIBLE);
+    }
+
+    private void onUserMakeOrder() {
+        // make array list
     }
 }
 
