@@ -45,10 +45,7 @@ public class MakeOrderActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
-
-        String username = getIntent().getStringExtra(USERNAME);
-        String greeting = String.format(getString(R.string.greeting), username);
-        textViewGreeting.setText(greeting);
+        setUpUsername();
     }
 
     public static Intent newIntent(Context context, String userName) { // Factory Method
@@ -72,4 +69,12 @@ public class MakeOrderActivity extends AppCompatActivity {
         spinnerTea = findViewById(R.id.spinnerTea);
         spinnerCoffee = findViewById(R.id.spinnerCoffee);
     }
+
+    private void setUpUsername() {
+        String username = getIntent().getStringExtra(USERNAME);
+        String greeting = String.format(getString(R.string.greeting), username);
+        textViewGreeting.setText(greeting);
+    }
 }
+
+
