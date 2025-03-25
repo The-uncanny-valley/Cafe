@@ -8,9 +8,10 @@
     tools:context=".MakeOrderActivity">
 
     <TextView
-        android:id="@+id/TextViewGreeting"
+        android:id="@+id/textViewGreeting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="48dp"
         android:layout_margin="8dp"
         android:text="@string/greeting"
         android:textAlignment="center"
@@ -26,7 +27,7 @@
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/textViewAdditives"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewGreeting">
+        app:layout_constraintTop_toBottomOf="@+id/textViewGreeting">
 
         <RadioButton
             android:id="@+id/radioButtonTea"
