@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(
                             MainActivity.this,
-                            getString(R.string.error_fields_empty),
+                            getString(R.string.empty_fields),
                             Toast.LENGTH_SHORT
                     ).show();
                 }

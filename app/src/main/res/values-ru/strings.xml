@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Cafe</string>
     <string name="welcome">Добро пожаловать!</string>
     <string name="username_hint">Ваше имя</string>
     <string name="password_hint">Пароль</string>
@@ -17,4 +18,6 @@
     <string name="what_drink_type">Тип напитка:</string>
     <string name="what_drink">Напиток:</string>
     <string name="name">Имя:</string>
+    <string name="empty_fields">Заполните все поля</string>
+    <string name="empty_fields">Заполните все поля</string>
 </resources>
