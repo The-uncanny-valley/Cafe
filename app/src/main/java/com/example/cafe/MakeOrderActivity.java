@@ -17,6 +17,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MakeOrderActivity extends AppCompatActivity {
 
+    private static final String USERNAME = "username";
+
     private TextView textViewGreeting;
     private TextView textViewAdditives;
 
@@ -43,11 +45,15 @@ public class MakeOrderActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+
+        String username = getIntent().getStringExtra(USERNAME);
+        String greeting = String.format(getString(R.string.greeting), username);
+        textViewGreeting.setText(greeting);
     }
 
     public static Intent newIntent(Context context, String userName) { // Factory Method
         Intent intent = new Intent(context, MakeOrderActivity.class);
-        intent.putExtra("username", userName);
+        intent.putExtra(USERNAME, userName);
         return intent;
     }
 
