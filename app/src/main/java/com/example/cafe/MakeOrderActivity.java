@@ -72,23 +72,7 @@ public class MakeOrderActivity extends AppCompatActivity {
         makeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<String> additives = new ArrayList<>();
-                if (checkBoxSugar.isChecked()) {
-                    additives.add(checkBoxSugar.getText().toString());
-                }
-                if (radioButtonTea.isChecked() && checkBoxLemon.isChecked()) {
-                    additives.add(checkBoxLemon.getText().toString());
-                }
-                if (checkBoxMilk.isChecked()) {
-                    additives.add(checkBoxMilk.getText().toString());
-                }
-
-                String drinkType = "";
-                if (radioButtonTea.isChecked()) {
-                    drinkType = spinnerTea.getSelectedItem().toString();
-                } else if (radioButtonCoffee.isChecked()) {
-                    drinkType = spinnerCoffee.getSelectedItem().toString();
-                }
+                onUserMakeOrder();
             }
         });
 
@@ -143,7 +127,23 @@ public class MakeOrderActivity extends AppCompatActivity {
     }
 
     private void onUserMakeOrder() {
-        // make array list
+        ArrayList<String> additives = new ArrayList<>();
+        if (checkBoxSugar.isChecked()) {
+            additives.add(checkBoxSugar.getText().toString());
+        }
+        if (radioButtonTea.isChecked() && checkBoxLemon.isChecked()) {
+            additives.add(checkBoxLemon.getText().toString());
+        }
+        if (checkBoxMilk.isChecked()) {
+            additives.add(checkBoxMilk.getText().toString());
+        }
+
+        String drinkType = "";
+        if (radioButtonTea.isChecked()) {
+            drinkType = spinnerTea.getSelectedItem().toString();
+        } else if (radioButtonCoffee.isChecked()) {
+            drinkType = spinnerCoffee.getSelectedItem().toString();
+        }
     }
 }
 
