@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class OrderDetailActivity extends AppCompatActivity {
 
     @Override
@@ -22,6 +24,15 @@ public class OrderDetailActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public static Intent newIntent(Context context, String username, String drink, ArrayList additives, String drinktype) {
+        Intent intent = new Intent(context, OrderDetailActivity.class);
+        intent.putExtra("username", username);
+        intent.putExtra("drink", drink);
+        intent.putExtra("additives", additives.toString());
+        intent.putExtra("drinktype", drinktype);
+        return intent;
     }
 
 }
