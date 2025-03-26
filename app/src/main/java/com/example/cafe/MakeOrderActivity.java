@@ -17,6 +17,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MakeOrderActivity extends AppCompatActivity {
 
     private static final String USERNAME = "username";
@@ -70,7 +72,23 @@ public class MakeOrderActivity extends AppCompatActivity {
         makeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
+                ArrayList<String> additives = new ArrayList<>();
+                if (checkBoxSugar.isChecked()) {
+                    additives.add(checkBoxSugar.getText().toString());
+                }
+                if (radioButtonTea.isChecked() && checkBoxLemon.isChecked()) {
+                    additives.add(checkBoxLemon.getText().toString());
+                }
+                if (checkBoxMilk.isChecked()) {
+                    additives.add(checkBoxMilk.getText().toString());
+                }
+
+                String drinkType = "";
+                if (radioButtonTea.isChecked()) {
+                    drinkType = spinnerTea.getSelectedItem().toString();
+                } else if (radioButtonCoffee.isChecked()) {
+                    drinkType = spinnerCoffee.getSelectedItem().toString();
+                }
             }
         });
 
@@ -102,7 +120,7 @@ public class MakeOrderActivity extends AppCompatActivity {
 
     private void setUpUsername() {
         username = getIntent().getStringExtra(USERNAME);
-        String greeting = String.format(getString(R.string.greeting), username);
+        String greeting = getString(R.string.greeting, username);
         textViewGreeting.setText(greeting);
     }
 
