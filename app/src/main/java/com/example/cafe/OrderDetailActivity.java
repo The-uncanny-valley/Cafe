@@ -26,7 +26,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         });
     }
 
-    public static Intent newIntent(Context context, String username, String drink, ArrayList additives, String drinktype) {
+    public static Intent newIntent(Context context, String username, String drink, String additives, String drinktype) {
         Intent intent = new Intent(context, OrderDetailActivity.class);
         intent.putExtra("username", username);
         intent.putExtra("drink", drink);
