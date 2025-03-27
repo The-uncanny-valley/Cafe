@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class MakeOrderActivity extends AppCompatActivity {
 
-    private static final String USERNAME = "username";
+    private static final String EXTRA_USERNAME = "username";
 
     private TextView textViewGreeting;
     private TextView textViewAdditives;
@@ -83,7 +83,7 @@ public class MakeOrderActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context, String userName) { // Factory Method
         Intent intent = new Intent(context, MakeOrderActivity.class);
-        intent.putExtra(USERNAME, userName);
+        intent.putExtra(EXTRA_USERNAME, userName);
         return intent;
     }
 
@@ -106,7 +106,7 @@ public class MakeOrderActivity extends AppCompatActivity {
     }
 
     private void setUpUsername() {
-        username = getIntent().getStringExtra(USERNAME);
+        username = getIntent().getStringExtra(EXTRA_USERNAME);
         String greeting = getString(R.string.greeting, username);
         textViewGreeting.setText(greeting);
     }
@@ -151,7 +151,12 @@ public class MakeOrderActivity extends AppCompatActivity {
     }
 
     private void launchNextScreen() {
-        Intent intent = OrderDetailActivity.newIntent(this, username, drink, additives, drinkType);
+        Intent intent = OrderDetailActivity.newIntent(
+                this,
+                username,
+                drink,
+                additives,
+                drinkType);
         startActivity(intent);
     }
 }
